@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
+import StreamVideoProvider from "@/providers/StreamClientProvider";
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <StreamVideoProvider> {children}</StreamVideoProvider>
+    </div>
+  );
 };
 export default RootLayout;

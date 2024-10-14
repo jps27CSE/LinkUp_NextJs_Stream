@@ -3,12 +3,17 @@ import HomeCard from "@/components/HomeCard";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import MeetingModal from "@/components/MeetingModal";
+import { useUser } from "@clerk/nextjs";
+import { useStreamVideoClient } from "@stream-io/video-react-sdk";
 
 const MeetingTypeList = () => {
   const router = useRouter();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >();
+
+  const { user } = useUser();
+  const client = useStreamVideoClient();
 
   const CreateMeeting = () => {};
 
