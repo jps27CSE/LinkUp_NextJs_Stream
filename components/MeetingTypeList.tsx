@@ -21,17 +21,18 @@ const MeetingTypeList = () => {
     link: "",
   });
 
-  const [callDetails, setCallDetails] = useState<Call>();
+  const [callDetail, setCallDetail] = useState<Call>();
   const { toast } = useToast();
 
   const CreateMeeting = async () => {
     if (!client || !user) return;
 
     try {
-      if (values.dateTime) {
+      if (!values.dateTime) {
         toast({
           title: "Please select a date and time",
         });
+        return;
       }
 
       const id = crypto.randomUUID();
@@ -42,7 +43,7 @@ const MeetingTypeList = () => {
       const startsAt =
         values.dateTime.toISOString() || new Date(Date.now()).toISOString();
 
-      const description = values.description || "Instant meeting";
+      const description = values.description || "Instant Meeting";
 
       await call.getOrCreate({
         data: {
@@ -53,10 +54,10 @@ const MeetingTypeList = () => {
         },
       });
 
-      setCallDetails(call);
+      setCallDetail(call);
 
       if (!values.description) {
-        router.push(`/meeting/${call.id}}`);
+        router.push(`/meeting/${call.id}`);
       }
 
       toast({
