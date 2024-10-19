@@ -15,6 +15,8 @@ const Meeting = () => {
   const { call, isCallLoading } = useGetCallById(id);
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
+  if (!isLoaded || isCallLoading) return <Loader />;
+
   if (!call)
     return (
       <p className="text-center text-3xl font-bold text-white">
