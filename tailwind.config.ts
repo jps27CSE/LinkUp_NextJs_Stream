@@ -11,13 +11,14 @@ const config: Config = {
     extend: {
       colors: {
         dark: {
-          1: "#1C1F2E",
-          2: "#161925",
-          3: "#252A41",
-          4: "#1E2757",
+          1: "#1f1f1f", // Jet Black
+          2: "#1A1A1A", // Charcoal Black
+          3: "#2B2B2B", // Onyx Black
+          4: "#101820", // Rich Black
         },
+
         blue: {
-          1: "#0E78F9",
+          1: "#3BB78F", // Greenish-blue vibe
         },
         sky: {
           1: "#C9DDFF",
