@@ -6,12 +6,14 @@ import { CallRecording } from "@stream-io/node-sdk";
 import MeetingCard from "@/components/MeetingCard";
 import { Call } from "@stream-io/video-react-sdk";
 import Loader from "./Loader";
+import { useToast } from "@/hooks/use-toast";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
   const router = useRouter();
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
+  const { toast } = useToast();
 
   const getCalls = () => {
     switch (type) {
@@ -40,15 +42,19 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   };
   useEffect(() => {
     const fetchRecordings = async () => {
-      const callData = await Promise.all(
-        callRecordings?.map((meeting) => meeting.queryRecordings()) ?? [],
-      );
+      try {
+        const callData = await Promise.all(
+          callRecordings?.map((meeting) => meeting.queryRecordings()) ?? [],
+        );
 
-      const recordings = callData
-        .filter((call) => call.recordings.length > 0)
-        .flatMap((call) => call.recordings);
+        const recordings = callData
+          .filter((call) => call.recordings.length > 0)
+          .flatMap((call) => call.recordings);
 
-      setRecordings(recordings);
+        setRecordings(recordings);
+      } catch (err) {
+        toast({ title: "Try again later" });
+      }
     };
 
     if (type === "recordings") {
