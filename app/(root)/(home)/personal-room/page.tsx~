@@ -28,7 +28,10 @@ const PersonalRoom = () => {
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
         <Table title="Topic" description={`${user?.username}'s meeting Room`} />
         <Table title="Meeting ID" description={meetingId!} />
-        <Table title="Invite Link" description={meetingLink} />
+        <Table
+          title="Invite Link"
+          description={meetingLink}
+        />
       </div>
     </section>
   );
