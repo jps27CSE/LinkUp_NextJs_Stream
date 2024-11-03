@@ -17,7 +17,7 @@ import {
 } from "@stream-io/video-react-sdk";
 import { cn } from "@/lib/utils";
 import { LayoutList, Users } from "lucide-react";
-import {useRouter, useSearchParams} from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "@/components/EndCallButton";
 import Loader from "@/components/Loader";
 
