@@ -54,6 +54,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
         // @ts-ignore
         setRecordings(recordings);
       } catch (err) {
+        console.log(err);
         toast({ title: "Try again later" });
       }
     };
