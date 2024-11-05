@@ -72,6 +72,6 @@ Check out the live version of the app here: [LinkUp Live](https://link-up-video.
 
 ## Demo Video
 
-Watch the demo video here: [LinkUp Demo]()
+Watch the demo video here: [LinkUp Demo](https://drive.google.com/file/d/1BN_VYU8fb5wALgGUZLZaJRAR0WJokOGJ/view?usp=sharing)
 
 ---
